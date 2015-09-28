@@ -43,7 +43,7 @@ public class MYCellModel : MYViewModel {
 
 public class MYTableViewCell : UITableViewCell, MYBaseViewProtocol {
     private weak var delegate: MYBaseViewDelegate?
-    weak var cellModel: MYCellModel?
+    public private (set) weak var cellModel: MYCellModel?
     
     public required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
