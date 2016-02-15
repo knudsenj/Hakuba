@@ -321,9 +321,7 @@ extension Hakuba : UITableViewDataSource {
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cellModel = self.cellViewModelAtIndexPath(indexPath) {
             if let cell = tableView.dequeueReusableCellWithIdentifier(cellModel.identifier, forIndexPath: indexPath) as? MYTableViewCell {
-                if cell.frame.width != tableView.frame.width {
-                    calculateHeightForConfiguredSizingCell(cell)
-                }
+                calculateHeightForConfiguredSizingCell(cell)
                 cell.configureCell(cellModel, forHeight:false)
                 return cell
             }
