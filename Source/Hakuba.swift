@@ -223,7 +223,7 @@ extension Hakuba : UITableViewDelegate {
                 heightCalculationCells[cellModel.identifier] = tableView.dequeueReusableCellWithIdentifier(cellModel.identifier) as? MYTableViewCell
             }
             if let cell = heightCalculationCells[cellModel.identifier] {
-                cell.configureCell(cellModel)
+                cell.configureCell(cellModel, forHeight:true)
                 cellModel.calculatedHeight = calculateHeightForConfiguredSizingCell(cell)
                 return cellModel.calculatedHeight!
             }
@@ -318,7 +318,7 @@ extension Hakuba : UITableViewDataSource {
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cellModel = self.cellViewModelAtIndexPath(indexPath) {
             if let cell = tableView.dequeueReusableCellWithIdentifier(cellModel.identifier, forIndexPath: indexPath) as? MYTableViewCell {
-                cell.configureCell(cellModel)
+                cell.configureCell(cellModel, forHeight:false)
                 return cell
             }
         }
